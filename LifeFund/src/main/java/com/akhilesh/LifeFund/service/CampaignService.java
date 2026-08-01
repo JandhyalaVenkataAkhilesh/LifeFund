@@ -8,7 +8,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface CampaignService {
-    CampaignResponse createCampaign(CreateCampaignRequest request);
-    Page<CampaignCardResponse> getAllCampaigns(Pageable pageable);
-    CampaignDetailsResponse getCampaignById(Long campaignId);
+
+    CampaignResponse createCampaign(
+            CreateCampaignRequest request
+    );
+
+    Page<CampaignCardResponse> getAllCampaigns(
+            String search,
+            Pageable pageable
+    );
+
+    CampaignDetailsResponse getCampaignById(
+            Long campaignId
+    );
+
 }

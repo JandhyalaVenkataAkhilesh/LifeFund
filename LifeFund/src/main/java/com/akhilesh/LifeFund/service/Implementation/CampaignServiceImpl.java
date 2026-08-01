@@ -81,13 +81,33 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
-    public Page<CampaignCardResponse> getAllCampaigns(Pageable pageable) {
-        Page<Campaign> campaigns = campaignRepository.findByCampaignStatus(
-                CampaignStatus.ACTIVE,
-                pageable
-        );
+    public Page<CampaignCardResponse> getAllCampaigns(
+            String search,
+            Pageable pageable) {
+
+        Page<Campaign> campaigns;
+
+        if (search == null || search.isBlank()) {
+
+            campaigns = campaignRepository.findByCampaignStatus(
+                    CampaignStatus.ACTIVE,
+                    pageable
+            );
+
+        } else {
+
+            campaigns = campaignRepository.searchCampaigns(
+                    CampaignStatus.ACTIVE,
+                    search,
+                    pageable
+            );
+
+        }
+
         return campaigns.map(campaign -> {
+
             PatientDetails patient = campaign.getPatientDetails();
+
             return CampaignCardResponse.builder()
                     .campaignId(campaign.getId())
                     .patientName(patient.getPatientName())
@@ -99,7 +119,9 @@ public class CampaignServiceImpl implements CampaignService {
                     .donorCount((int) donationRepository.countByCampaign(campaign))
                     .campaignStatus(campaign.getCampaignStatus())
                     .build();
+
         });
+
     }
 
     @Override

@@ -31,12 +31,28 @@ public class CampaignController {
 
     @GetMapping
     public ResponseEntity<Page<CampaignCardResponse>> getAllCampaigns(
-            @PageableDefault(page = 0, size = 10) Pageable pageable) {
+
+            @RequestParam(
+                    required = false
+            )
+            String search,
+
+            @PageableDefault(
+                    page = 0,
+                    size = 10
+            )
+            Pageable pageable
+
+    ) {
 
         Page<CampaignCardResponse> response =
-                campaignService.getAllCampaigns(pageable);
+                campaignService.getAllCampaigns(
+                        search,
+                        pageable
+                );
 
         return ResponseEntity.ok(response);
+
     }
 
     @GetMapping("/{campaignId}")
