@@ -1,5 +1,6 @@
 package com.akhilesh.LifeFund.service.Implementation;
 
+import com.akhilesh.LifeFund.exceptions.FileStorageException;
 import com.akhilesh.LifeFund.service.FileService;
 import com.akhilesh.LifeFund.utils.FileConstants;
 import org.springframework.core.io.Resource;
@@ -30,11 +31,10 @@ public class FileServiceImpl implements FileService {
                 return resource;
             }
 
-            throw new RuntimeException("File not found.");
+            throw new FileStorageException("File not found.");
 
         } catch (MalformedURLException e) {
-            throw new RuntimeException("Unable to read file.", e);
+            throw new FileStorageException("Unable to read file.");
         }
-
     }
 }

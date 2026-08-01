@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -30,9 +29,19 @@ public class User implements UserDetails {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true, length = 10)
+    /*
+     * Google OAuth does not provide a phone number.
+     * Therefore, keep this nullable.
+     * Later, after Google login, we can ask the user
+     * to complete their profile.
+     */
+    @Column(unique = true, length = 15)
     private String phoneNumber;
 
+    /*
+     * Google users won't have a password.
+     * LOCAL users will have an encrypted password.
+     */
     @Column
     private String password;
 
@@ -54,11 +63,13 @@ public class User implements UserDetails {
         createdAt = LocalDateTime.now();
     }
 
-//    @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
-//    private List<Campaign> campaigns;
-//
-//    @OneToMany(mappedBy = "donor", fetch = FetchType.LAZY)
-//    private List<Donation> donations;
+    /*
+    @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
+    private List<Campaign> campaigns;
+
+    @OneToMany(mappedBy = "donor", fetch = FetchType.LAZY)
+    private List<Donation> donations;
+    */
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -71,13 +82,13 @@ public class User implements UserDetails {
     }
 
     @Override
-    public boolean isEnabled() {
-        return enabled;
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
     }
 
     @Override
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
+    public boolean isEnabled() {
+        return enabled;
     }
 
 }

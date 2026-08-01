@@ -1,6 +1,7 @@
 package com.akhilesh.LifeFund.config;
 
 import com.akhilesh.LifeFund.filter.JwtAuthFilter;
+import com.akhilesh.LifeFund.oauth.OAuth2LoginSuccessHandler;
 import com.akhilesh.LifeFund.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,6 +28,8 @@ public class SecurityConfig {
     private final PasswordEncoder passwordEncoder;
 
     private final CustomUserDetailsService customUserDetailsService;
+
+    private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -74,6 +79,10 @@ public class SecurityConfig {
                 )
 
                 .httpBasic(Customizer.withDefaults())
+                .oauth2Login(oauth -> oauth
+
+                        .successHandler(oAuth2LoginSuccessHandler)
+                )
 
                 .addFilterBefore(
                         jwtAuthFilter,

@@ -13,6 +13,8 @@ import lombok.Setter;
 @Builder
 public class PaymentResponse {
 
+    private boolean success;
+
     private String message;
 
 }

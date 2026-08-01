@@ -6,6 +6,10 @@ import com.akhilesh.LifeFund.dto.response.LoginResponse;
 import com.akhilesh.LifeFund.dto.response.SignupResponse;
 import com.akhilesh.LifeFund.entity.User;
 import com.akhilesh.LifeFund.enums.AuthProvider;
+import com.akhilesh.LifeFund.exceptions.EmailAlreadyExistsException;
+import com.akhilesh.LifeFund.exceptions.GoogleLoginRequiredException;
+import com.akhilesh.LifeFund.exceptions.PhoneNumberAlreadyExistsException;
+import com.akhilesh.LifeFund.exceptions.UserNotFoundException;
 import com.akhilesh.LifeFund.repository.UserRepository;
 import com.akhilesh.LifeFund.service.JWTService;
 import com.akhilesh.LifeFund.service.UserService;
@@ -34,11 +38,11 @@ public class UserServiceImpl implements UserService {
     public SignupResponse signup(SignupRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already exists.");
+            throw new EmailAlreadyExistsException("Email already exists.");
         }
 
         if (userRepository.existsByPhoneNumber(request.getPhoneNumber())) {
-            throw new RuntimeException("Phone number already exists.");
+            throw new PhoneNumberAlreadyExistsException("Phone number already exists.");
         }
 
         User user = modelMapper.map(request, User.class);
@@ -59,6 +63,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public LoginResponse login(LoginRequest request) {
 
+        User user = userRepository
+                .findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new UserNotFoundException("User not found."));
+
+        if (user.getAuthProvider() == AuthProvider.GOOGLE) {
+            throw new GoogleLoginRequiredException(
+                    "This account was created using Google. Please continue with Google Sign-In."
+            );
+        }
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -66,14 +81,12 @@ public class UserServiceImpl implements UserService {
                 )
         );
 
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found."));
-
         String token = jwtService.generateToken(user);
 
         return LoginResponse.builder()
                 .token(token)
                 .build();
+
     }
 
 }

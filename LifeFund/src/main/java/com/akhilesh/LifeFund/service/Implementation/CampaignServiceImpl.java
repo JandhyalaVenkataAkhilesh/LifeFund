@@ -7,6 +7,7 @@ import com.akhilesh.LifeFund.dto.response.CampaignResponse;
 import com.akhilesh.LifeFund.entity.Campaign;
 import com.akhilesh.LifeFund.entity.PatientDetails;
 import com.akhilesh.LifeFund.enums.CampaignStatus;
+import com.akhilesh.LifeFund.exceptions.CampaignNotFoundException;
 import com.akhilesh.LifeFund.repository.CampaignRepository;
 import com.akhilesh.LifeFund.repository.DonationRepository;
 import com.akhilesh.LifeFund.service.CampaignService;
@@ -104,8 +105,12 @@ public class CampaignServiceImpl implements CampaignService {
     @Override
     public CampaignDetailsResponse getCampaignById(Long campaignId) {
 
-        Campaign campaign = campaignRepository.findById(campaignId)
-                .orElseThrow(() -> new RuntimeException("Campaign not found."));
+        Campaign campaign = campaignRepository
+                .findById(campaignId)
+                .orElseThrow(() ->
+                        new CampaignNotFoundException(
+                                "Campaign not found with id : " + campaignId
+                        ));
 
         PatientDetails patient = campaign.getPatientDetails();
 
