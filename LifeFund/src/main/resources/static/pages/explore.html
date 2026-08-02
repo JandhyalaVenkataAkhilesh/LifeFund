@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Campaigns | LifeFund</title>
+
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/explore.css">
+
+    <link rel="stylesheet"
+          href="../css/toast.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+            NAVBAR
+=========================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        ❤️ LifeFund
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+
+            Dashboard
+
+        </a>
+
+        <a
+                href="explore.html"
+                class="active">
+
+            Explore Campaigns
+
+        </a>
+
+        <a href="raise-fund.html">
+
+            Raise Fund
+
+        </a>
+
+    </div>
+
+    <div class="profile-section">
+
+        <span id="userName">
+
+            <i class="fa-solid fa-user"></i>
+
+        </span>
+
+        <button
+                id="logoutButton"
+                class="logout-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- ===========================
+            MAIN
+=========================== -->
+
+<div class="container">
+
+    <div class="page-title">
+
+        <h1>
+
+            ❤️ Explore Campaigns
+
+        </h1>
+
+        <p>
+
+            Support genuine patients and save lives.
+
+        </p>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-container">
+
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+        <input
+                type="text"
+                id="searchInput"
+                placeholder="Search patient, disease or hospital...">
+
+        <i
+                class="fa-solid fa-xmark clear-icon"
+                id="clearSearch">
+
+        </i>
+
+    </div>
+
+    <!-- Campaign Count -->
+
+    <div
+            class="campaign-count"
+            id="campaignCountText">
+
+        Showing campaigns...
+
+    </div>
+
+    <!-- Campaign List -->
+
+    <div
+            id="campaignList"
+            class="campaign-list">
+
+    </div>
+
+    <!-- Pagination -->
+
+    <div
+            id="pagination"
+            class="pagination">
+
+    </div>
+
+</div>
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/explore.js"></script>
+
+</body>
+
+</html>

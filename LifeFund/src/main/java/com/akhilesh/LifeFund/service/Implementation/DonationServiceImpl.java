@@ -68,15 +68,23 @@ public class DonationServiceImpl implements DonationService {
 
         options.put("receipt", receipt);
 
-        Order order = razorpayClient.orders.create(options);
+        try {
 
-        return RazorpayOrderResponse.builder()
-                .orderId(order.get("id").toString())
-                .amount(request.getAmount())
-                .currency(order.get("currency").toString())
-                .keyId(keyId)
-                .build();
+            Order order = razorpayClient.orders.create(options);
 
+            return RazorpayOrderResponse.builder()
+                    .orderId(order.get("id").toString())
+                    .amount(request.getAmount())
+                    .currency(order.get("currency").toString())
+                    .keyId(keyId)
+                    .build();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();   // <-- Add this
+
+            throw e;
+        }
     }
 
     @Override

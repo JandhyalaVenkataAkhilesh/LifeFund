@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Campaign Details</title>
+
+    <link
+            rel="stylesheet"
+            href="../css/common.css">
+
+    <link
+            rel="stylesheet"
+            href="../css/campaign-details.css">
+
+    <link
+            rel="stylesheet"
+            href="../css/toast.css">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+                NAVBAR
+=========================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        ❤️ LifeFund
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+
+            Dashboard
+
+        </a>
+
+        <a href="explore.html"
+           class="active">
+
+            Explore Campaigns
+
+        </a>
+
+        <a href="raise-fund.html">
+
+            Raise Fund
+
+        </a>
+
+    </div>
+
+    <div class="profile-section">
+
+        <span id="userName"></span>
+
+        <button
+                id="logoutButton"
+                class="logout-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+            PAGE CONTAINER
+=========================================== -->
+
+<div class="container">
+
+    <!-- Back -->
+
+    <a
+            href="explore.html"
+            class="back-link">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Explore Campaigns
+
+    </a>
+
+
+    <!-- Header -->
+
+    <section class="header-card">
+
+        <h1 id="patientName">
+
+            Patient Name
+
+        </h1>
+
+        <span
+                id="campaignStatus"
+                class="status-badge">
+
+            Active
+
+        </span>
+
+    </section>
+
+
+    <!-- Patient -->
+
+    <section class="patient-card">
+
+        <img
+                id="patientPhoto"
+                class="patient-photo">
+
+        <div class="patient-info">
+
+            <p>
+                🩺
+                <strong>Disease :</strong>
+                <span id="diseaseName"></span>
+            </p>
+
+            <p>
+                🚻
+                <strong>Gender :</strong>
+                <span id="gender"></span>
+            </p>
+
+            <p>
+                🏥
+                <strong>Hospital :</strong>
+                <span id="hospitalName"></span>
+            </p>
+
+            <p>
+                👨‍⚕️
+                <strong>Doctor :</strong>
+                <span id="doctorName"></span>
+            </p>
+
+            <p>
+                👤
+                <strong>Age :</strong>
+                <span id="age"></span>
+            </p>
+
+            <p>
+                🩸
+                <strong>Blood Group :</strong>
+                <span id="bloodGroup"></span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Progress -->
+
+    <section class="card">
+
+        <h2>
+
+            Campaign Progress
+
+        </h2>
+
+        <h3>
+
+            ₹<span id="raisedAmount"></span>
+
+            raised of
+
+            ₹<span id="targetAmount"></span>
+
+        </h3>
+
+        <div class="progress">
+
+            <div
+                    id="progressBar"
+                    class="progress-bar">
+
+            </div>
+
+        </div>
+
+        <div class="progress-footer">
+
+            <span>
+
+                ❤️
+
+                <span id="donorCount"></span>
+
+                Donors
+
+            </span>
+
+            <span
+                    id="progressPercentage">
+
+                0%
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section class="card">
+
+        <h2>
+
+            About Patient
+
+        </h2>
+
+        <p id="description">
+
+        </p>
+
+    </section>
+
+
+    <!-- Treatment -->
+
+    <section class="card">
+
+        <h2>
+
+            Treatment Required
+
+        </h2>
+
+        <p id="treatmentRequired">
+
+        </p>
+
+    </section>
+
+
+    <!-- Documents -->
+
+    <section class="card">
+
+        <h2>
+
+            Documents
+
+        </h2>
+
+        <div class="document-row">
+
+            <span>
+
+                📄 Medical Report
+
+            </span>
+
+            <button
+                    id="medicalReportBtn"
+                    class="btn">
+
+                Download
+
+            </button>
+
+        </div>
+
+        <div class="document-row">
+
+            <span>
+
+                📄 Hospital Estimate
+
+            </span>
+
+            <button
+                    id="hospitalEstimateBtn"
+                    class="btn">
+
+                Download
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Donate -->
+
+    <section class="donate-card">
+
+        <h2>
+
+            ❤️ Donate to
+
+            <span id="donationPatientName">
+
+            </span>
+
+        </h2>
+
+        <label>
+
+            Donor Name
+
+        </label>
+
+        <input
+                id="donorName"
+                type="text"
+                placeholder="Enter your name">
+
+        <label>
+
+            Email
+
+        </label>
+
+        <input
+                id="donorEmail"
+                type="email"
+                placeholder="Enter your email">
+
+        <label>
+
+            Phone Number
+
+        </label>
+
+        <input
+                id="donorPhoneNumber"
+                type="text"
+                placeholder="Enter your phone number">
+
+        <label>
+
+            Amount
+
+        </label>
+
+        <input
+                id="donationAmount"
+                type="number"
+                placeholder="Enter donation amount">
+
+        <button
+                id="donateButton"
+                class="btn btn-primary">
+
+            ❤️ Proceed to Payment
+
+        </button>
+
+    </section>
+
+</div>
+
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/campaign-details.js"></script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</body>
+
+</html>
