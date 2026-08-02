@@ -38,7 +38,7 @@ public class DashboardServiceImpl implements DashboardService {
                 );
 
         Long totalDonors =
-                donationRepository.countByPaymentStatus(
+                donationRepository.countDistinctDonors(
                         PaymentStatus.SUCCESS
                 );
 

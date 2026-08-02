@@ -1,0 +1,969 @@
+/* ======================================================
+                    BODY
+====================================================== */
+
+body{
+
+    margin:0;
+
+    padding:0;
+
+    background:#F7F8FC;
+
+    font-family:Arial,sans-serif;
+
+}
+
+/* ======================================================
+                    PAGE HEADER
+====================================================== */
+
+.page-header{
+
+    text-align:center;
+
+    padding:40px 20px 25px;
+
+}
+
+.page-header h1{
+
+    margin:0;
+
+    color:#E63946;
+
+    font-size:42px;
+
+}
+
+.page-header p{
+
+    color:#666;
+
+    margin-top:15px;
+
+    font-size:18px;
+
+}
+
+/* ======================================================
+                MAIN CONTAINER
+====================================================== */
+
+.wizard-container{
+
+    width:92%;
+
+    max-width:1250px;
+
+    margin:auto;
+
+    margin-bottom:50px;
+
+}
+
+/* ======================================================
+                    STEPPER
+====================================================== */
+
+.stepper{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:50px 0;
+
+}
+
+.progress-line{
+
+    position:absolute;
+
+    left:8%;
+
+    right:8%;
+
+    top:23px;
+
+    height:6px;
+
+    background:#E5E5E5;
+
+    border-radius:10px;
+
+    z-index:1;
+
+}
+
+#progressFill{
+
+    width:20%;
+
+    height:100%;
+
+    background:#E63946;
+
+    border-radius:10px;
+
+    transition:.4s;
+
+}
+
+.step{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    width:20%;
+
+}
+
+.circle{
+
+    width:48px;
+
+    height:48px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#DDD;
+
+    color:#555;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.step span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    color:#666;
+
+}
+
+.step.active .circle{
+
+    background:#E63946;
+
+    color:white;
+
+    transform:scale(1.12);
+
+    box-shadow:0 8px 25px rgba(230,57,70,.35);
+
+}
+
+.step.completed .circle{
+
+    background:#2ECC71;
+
+    color:white;
+
+}
+
+/* ======================================================
+                    FORM CARD
+====================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    margin-bottom:40px;
+
+    animation:fadeIn .35s ease;
+
+}
+
+.card h2{
+
+    margin-top:0;
+
+    margin-bottom:35px;
+
+    color:#E63946;
+
+    font-size:32px;
+
+}
+
+/* ======================================================
+                    FORM STEP
+====================================================== */
+
+.form-step{
+
+    display:none;
+
+}
+
+.form-step.active{
+
+    display:block;
+
+}
+
+/* ======================================================
+                    INPUT GRID
+====================================================== */
+
+.input-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.full-width{
+
+    grid-column:1/-1;
+
+}
+
+/* ======================================================
+                    INPUT GROUP
+====================================================== */
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.input-group label{
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.input-group input,
+
+.input-group select,
+
+.input-group textarea{
+
+    padding:15px;
+
+    border:1px solid #D8D8D8;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    background:white;
+
+    box-sizing:border-box;
+
+}
+
+.input-group textarea{
+
+    resize:none;
+
+}
+
+.input-group input:focus,
+
+.input-group select:focus,
+
+.input-group textarea:focus{
+
+    outline:none;
+
+    border-color:#E63946;
+
+    box-shadow:0 0 0 4px rgba(230,57,70,.15);
+
+}
+
+/* ======================================================
+                    BUTTONS
+====================================================== */
+
+.button-group{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:40px;
+
+}
+
+.primary-btn{
+
+    background:#E63946;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    background:#C1121F;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(230,57,70,.25);
+
+}
+
+.secondary-btn{
+
+    background:white;
+
+    color:#E63946;
+
+    border:2px solid #E63946;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#E63946;
+
+    color:white;
+
+}
+
+/* ======================================================
+                    ANIMATION
+====================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ======================================================
+                UPLOAD GRID
+====================================================== */
+
+.upload-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+/* ======================================================
+                UPLOAD BOX
+====================================================== */
+
+.upload-box{
+
+    background:#FAFAFA;
+
+    border:2px dashed #D6D6D6;
+
+    border-radius:18px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.upload-box:hover{
+
+    border-color:#E63946;
+
+    background:#FFF5F6;
+
+    transform:translateY(-6px);
+
+}
+
+.upload-box i{
+
+    font-size:55px;
+
+    color:#E63946;
+
+    margin-bottom:18px;
+
+}
+
+.upload-box h3{
+
+    margin:12px 0 18px;
+
+    color:#333;
+
+    font-size:22px;
+
+}
+
+.upload-box input{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+/* ======================================================
+                IMAGE PREVIEW
+====================================================== */
+
+.image-preview{
+
+    display:none;
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    margin:25px auto 0;
+
+    border-radius:16px;
+
+    border:4px solid white;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+/* ======================================================
+                PDF NAME
+====================================================== */
+
+#medicalReportName,
+
+#hospitalEstimateName{
+
+    margin-top:18px;
+
+    font-size:15px;
+
+    color:#2E7D32;
+
+    font-weight:600;
+
+    word-break:break-word;
+
+}
+
+/* ======================================================
+                PREVIEW CARD
+====================================================== */
+
+.preview-card{
+
+    padding:45px;
+
+}
+
+.preview-subtitle{
+
+    color:#777;
+
+    margin-bottom:35px;
+
+}
+
+.preview-container{
+
+    display:flex;
+
+    gap:45px;
+
+    align-items:flex-start;
+
+}
+
+.preview-image img{
+
+    width:320px;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+}
+
+.preview-details{
+
+    flex:1;
+
+}
+
+.preview-details h2{
+
+    margin-top:0;
+
+    color:#222;
+
+    font-size:34px;
+
+}
+
+.preview-details h3{
+
+    color:#E63946;
+
+    margin:12px 0;
+
+}
+
+.preview-details h4{
+
+    margin-top:28px;
+
+    margin-bottom:10px;
+
+    color:#444;
+
+}
+
+.preview-details p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin:8px 0;
+
+}
+
+/* ======================================================
+            DOCUMENT PREVIEW
+====================================================== */
+
+.document-preview{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.document-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#F8F9FA;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    border:1px solid #ECECEC;
+
+}
+
+.document-item i{
+
+    color:#E63946;
+
+    font-size:24px;
+
+}
+
+/* ======================================================
+                SUCCESS MODAL
+====================================================== */
+
+.success-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.success-modal.show{
+
+    display:flex;
+
+    animation:fadeIn .35s ease;
+
+}
+
+.success-card{
+
+    background:white;
+
+    width:500px;
+
+    max-width:92%;
+
+    padding:45px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+}
+
+.success-card i{
+
+    font-size:80px;
+
+    color:#2ECC71;
+
+    margin-bottom:20px;
+
+}
+
+.success-card h2{
+
+    margin:0;
+
+    color:#222;
+
+    font-size:32px;
+
+}
+
+.success-card p{
+
+    color:#666;
+
+    margin:18px 0 35px;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+/* ======================================================
+                SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#E63946;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F2F2F2;
+
+}
+
+/* ======================================================
+                PLACEHOLDER
+====================================================== */
+
+input::placeholder,
+
+textarea::placeholder{
+
+    color:#AAA;
+
+}
+
+/* ======================================================
+                DISABLED BUTTON
+====================================================== */
+
+button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+/* ======================================================
+                RESPONSIVE
+====================================================== */
+
+@media(max-width:1100px){
+
+    .preview-container{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .preview-image img{
+
+        width:260px;
+
+        height:260px;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .input-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .upload-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    .primary-btn,
+
+    .secondary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .step span{
+
+        display:none;
+
+    }
+
+    .circle{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .page-header h1{
+
+        font-size:32px;
+
+    }
+
+    .card{
+
+        padding:25px;
+
+    }
+
+    .preview-details h2{
+
+        font-size:26px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .wizard-container{
+
+        width:96%;
+
+    }
+
+    .page-header{
+
+        padding:25px 15px;
+
+    }
+
+    .page-header h1{
+
+        font-size:28px;
+
+    }
+
+    .card{
+
+        padding:20px;
+
+    }
+
+    .preview-image img{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+}
+
+/* ======================================================
+                HOVER EFFECTS
+====================================================== */
+
+.card{
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.upload-box{
+
+    transition:.35s;
+
+}
+
+.upload-box:hover{
+
+    box-shadow:0 15px 40px rgba(230,57,70,.18);
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+    transition:all .30s ease;
+
+}
+
+/* ======================================================
+                SMOOTH TRANSITION
+====================================================== */
+
+.form-step{
+
+    animation:fadeIn .35s ease;
+
+}

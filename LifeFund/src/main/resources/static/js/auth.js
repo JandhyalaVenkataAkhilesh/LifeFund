@@ -92,6 +92,16 @@ function getAuthorizationHeader(){
 
 }
 
+function getMultipartAuthorizationHeader(){
+
+    return {
+
+        "Authorization": "Bearer " + getToken()
+
+    };
+
+}
+
 /*
 ==========================================
         LOGOUT

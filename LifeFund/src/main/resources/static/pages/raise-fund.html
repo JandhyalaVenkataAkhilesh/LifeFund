@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Raise Fund | LifeFund</title>
+
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/raise-fund.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        ❤️ LifeFund
+
+    </div>
+
+    <div class="navbar-right">
+
+        <span id="userName"></span>
+
+        <button
+                id="logoutButton"
+                class="secondary-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+            PAGE HEADER
+========================================== -->
+
+<section class="page-header">
+
+    <h1>
+
+        ❤️ Raise a Fund
+
+    </h1>
+
+    <p>
+
+        Create a fundraising campaign
+        and help someone receive the
+        treatment they deserve.
+
+    </p>
+
+</section>
+
+<!-- ==========================================
+            FORM CONTAINER
+========================================== -->
+
+<section class="wizard-container">
+
+    <!-- ==========================================
+                PROGRESS BAR
+    ========================================== -->
+
+    <div class="stepper">
+
+        <div class="progress-line">
+
+            <div id="progressFill"></div>
+
+        </div>
+
+        <div class="step active">
+
+            <div class="circle">
+
+                1
+
+            </div>
+
+            <span>
+
+            Patient
+
+        </span>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+
+                2
+
+            </div>
+
+            <span>
+
+            Medical
+
+        </span>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+
+                3
+
+            </div>
+
+            <span>
+
+            Documents
+
+        </span>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+
+                4
+
+            </div>
+
+            <span>
+
+            Campaign
+
+        </span>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+
+                5
+
+            </div>
+
+            <span>
+
+            Preview
+
+        </span>
+
+        </div>
+
+    </div>
+
+    <form id="campaignForm">
+
+        <!-- ==========================================
+                    STEP-1
+        ========================================== -->
+
+        <div
+                class="form-step active"
+                id="step1">
+
+            <div class="card">
+
+                <h2>
+
+                    👤 Patient Details
+
+                </h2>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Patient Name
+
+                        </label>
+
+                        <input
+                                id="patientName"
+                                type="text">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Age
+
+                        </label>
+
+                        <input
+                                id="age"
+                                type="number">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Gender
+
+                        </label>
+
+                        <select id="gender">
+
+                            <option value="">
+
+                                Select Gender
+
+                            </option>
+
+                            <option>
+
+                                MALE
+
+                            </option>
+
+                            <option>
+
+                                FEMALE
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Blood Group
+
+                        </label>
+
+                        <select
+                                id="bloodGroup">
+
+                            <option value="">
+
+                                Select Blood Group
+
+                            </option>
+
+                            <option>A_POSITIVE</option>
+
+                            <option>A_NEGATIVE</option>
+
+                            <option>B_POSITIVE</option>
+
+                            <option>B_NEGATIVE</option>
+
+                            <option>AB_POSITIVE</option>
+
+                            <option>AB_NEGATIVE</option>
+
+                            <option>O_POSITIVE</option>
+
+                            <option>O_NEGATIVE</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                            type="button"
+                            id="next1"
+                            class="primary-btn">
+
+                        Continue →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+                    STEP-2
+        ========================================== -->
+
+        <div
+                class="form-step"
+                id="step2">
+
+            <div class="card">
+
+                <h2>
+
+                    🏥 Medical Details
+
+                </h2>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Disease Name
+
+                        </label>
+
+                        <input
+                                id="diseaseName"
+                                type="text">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Hospital Name
+
+                        </label>
+
+                        <input
+                                id="hospitalName"
+                                type="text">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Doctor Name
+
+                        </label>
+
+                        <input
+                                id="doctorName"
+                                type="text">
+
+                    </div>
+
+                    <div class="input-group full-width">
+
+                        <label>
+
+                            Treatment Required
+
+                        </label>
+
+                        <textarea
+                                id="treatmentRequired"
+                                rows="4">
+
+                </textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                            type="button"
+                            id="previous2"
+                            class="secondary-btn">
+
+                        ← Previous
+
+                    </button>
+
+                    <button
+                            type="button"
+                            id="next2"
+                            class="primary-btn">
+
+                        Continue →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ==========================================
+            STEP-3
+========================================== -->
+
+        <div
+                class="form-step"
+                id="step3">
+
+            <div class="card">
+
+                <h2>
+
+                    📂 Upload Documents
+
+                </h2>
+
+                <div class="upload-grid">
+
+                    <div class="upload-box">
+
+                        <i class="fa-solid fa-image"></i>
+
+                        <h3>
+
+                            Patient Photo
+
+                        </h3>
+
+                        <input
+                                type="file"
+                                id="patientPhoto"
+                                accept=".png,.jpg,.jpeg">
+
+                        <img
+                                id="patientPreview"
+                                class="image-preview">
+
+                    </div>
+
+                    <div class="upload-box">
+
+                        <i class="fa-solid fa-file-medical"></i>
+
+                        <h3>
+
+                            Medical Report
+
+                        </h3>
+
+                        <input
+                                type="file"
+                                id="medicalReport"
+                                accept=".pdf">
+
+                        <p
+                                id="medicalReportName">
+
+                        </p>
+
+                    </div>
+
+                    <div class="upload-box">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                        <h3>
+
+                            Hospital Estimate
+
+                        </h3>
+
+                        <input
+                                type="file"
+                                id="hospitalEstimate"
+                                accept=".pdf">
+
+                        <p
+                                id="hospitalEstimateName">
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                            type="button"
+                            id="previous3"
+                            class="secondary-btn">
+
+                        ← Previous
+
+                    </button>
+
+                    <button
+                            type="button"
+                            id="next3"
+                            class="primary-btn">
+
+                        Continue →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+                    STEP-4
+        ========================================== -->
+
+        <div
+                class="form-step"
+                id="step4">
+
+            <div class="card">
+
+                <h2>
+
+                    💰 Campaign Details
+
+                </h2>
+
+                <div class="input-grid">
+
+                    <div class="input-group full-width">
+
+                        <label>
+
+                            Campaign Title
+
+                        </label>
+
+                        <input
+                                id="campaignTitle"
+                                type="text">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Target Amount
+
+                        </label>
+
+                        <input
+                                id="targetAmount"
+                                type="number">
+
+                    </div>
+
+                    <div class="input-group full-width">
+
+                        <label>
+
+                            Campaign Description
+
+                        </label>
+
+                        <textarea
+                                id="campaignDescription"
+                                rows="6">
+
+                </textarea>
+
+                    </div>
+
+                    <div class="input-group full-width">
+
+                        <label>
+
+                            Patient Story
+
+                        </label>
+
+                        <textarea
+                                id="description"
+                                rows="6">
+
+                </textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                            type="button"
+                            id="previous4"
+                            class="secondary-btn">
+
+                        ← Previous
+
+                    </button>
+
+                    <button
+                            type="button"
+                            id="next4"
+                            class="primary-btn">
+
+                        Continue →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ==========================================
+            STEP-5
+========================================== -->
+
+        <div
+                class="form-step"
+                id="step5">
+
+            <div class="card preview-card">
+
+                <h2>
+
+                    👀 Preview Campaign
+
+                </h2>
+
+                <p class="preview-subtitle">
+
+                    This is how your campaign will appear to donors.
+
+                </p>
+
+                <div class="preview-container">
+
+                    <div class="preview-image">
+
+                        <img
+                                id="previewPatientPhoto">
+
+                    </div>
+
+                    <div class="preview-details">
+
+                        <h2 id="previewPatientName">
+
+                        </h2>
+
+                        <h3 id="previewDisease">
+
+                        </h3>
+
+                        <p>
+
+                            🏥
+
+                            <span
+                                    id="previewHospital">
+
+                    </span>
+
+                        </p>
+
+                        <p>
+
+                            👨‍⚕️
+
+                            <span
+                                    id="previewDoctor">
+
+                    </span>
+
+                        </p>
+
+                        <p>
+
+                            🎯 Goal :
+
+                            ₹
+
+                            <span
+                                    id="previewGoal">
+
+                    </span>
+
+                        </p>
+
+                        <h4>
+
+                            Campaign Title
+
+                        </h4>
+
+                        <p
+                                id="previewTitle">
+
+                        </p>
+
+                        <h4>
+
+                            Campaign Description
+
+                        </h4>
+
+                        <p
+                                id="previewCampaignDescription">
+
+                        </p>
+
+                        <h4>
+
+                            Patient Story
+
+                        </h4>
+
+                        <p
+                                id="previewStory">
+
+                        </p>
+
+                        <div class="document-preview">
+
+                            <div class="document-item">
+
+                                <i
+                                        class="fa-solid fa-file-medical">
+
+                                </i>
+
+                                <span
+                                        id="previewMedicalReport">
+
+                        </span>
+
+                            </div>
+
+                            <div class="document-item">
+
+                                <i
+                                        class="fa-solid fa-file-pdf">
+
+                                </i>
+
+                                <span
+                                        id="previewHospitalEstimate">
+
+                        </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                            type="button"
+                            id="previous5"
+                            class="secondary-btn">
+
+                        ← Previous
+
+                    </button>
+
+                    <button
+                            type="submit"
+                            id="publishCampaign"
+                            class="primary-btn">
+
+                        🚀 Publish Campaign
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- ==========================================
+        SUCCESS MODAL
+========================================== -->
+
+<div
+        id="successModal"
+        class="success-modal">
+
+    <div class="success-card">
+
+        <i
+                class="fa-solid fa-circle-check">
+
+        </i>
+
+        <h2>
+
+            Campaign Created Successfully
+
+        </h2>
+
+        <p>
+
+            Your fundraiser has been published.
+
+        </p>
+
+        <button
+                id="dashboardButton"
+                class="primary-btn">
+
+            Go to Dashboard
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+        SCRIPTS
+========================================== -->
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/common.js"></script>
+
+<script src="../js/raise-fund.js"></script>
+
+</body>
+
+</html>

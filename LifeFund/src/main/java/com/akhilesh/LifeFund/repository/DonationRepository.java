@@ -28,4 +28,13 @@ public interface DonationRepository extends JpaRepository<Donation,Long> {
             PaymentStatus paymentStatus
     );
 
+    @Query("""
+            SELECT COUNT(DISTINCT d.donorPhoneNumber)
+            FROM Donation d
+            WHERE d.paymentStatus = :paymentStatus
+            """)
+    long countDistinctDonors(
+            PaymentStatus paymentStatus
+    );
+
 }
