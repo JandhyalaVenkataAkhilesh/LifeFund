@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | LifeFund</title>
+
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/dashboard.css">
+
+    <link rel="stylesheet"
+          href="../css/toast.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+            NAVBAR
+============================ -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        ❤️ LifeFund
+
+    </div>
+
+    <div class="nav-links">
+
+        <a
+                href="dashboard.html"
+                class="active">
+
+            Dashboard
+
+        </a>
+
+        <a href="campaigns.html">
+
+            Explore Campaigns
+
+        </a>
+
+        <a href="raise-fund.html">
+
+            Raise Fund
+
+        </a>
+
+    </div>
+
+    <div class="profile-section">
+
+        <span id="userName">
+
+            <i class="fa-solid fa-user"></i>
+
+            Loading...
+
+        </span>
+
+        <button
+                id="logoutButton"
+                class="logout-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- ===========================
+        HERO SECTION
+============================ -->
+
+<section class="hero">
+
+    <h1 id="greeting">
+
+        Good Morning
+
+    </h1>
+
+    <p>
+
+        Every contribution creates hope for a family in need.
+
+    </p>
+
+    <span>
+
+        "Together we save lives, one donation at a time."
+
+    </span>
+
+</section>
+
+<!-- ===========================
+        STATISTICS
+============================ -->
+
+<section class="statistics">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-heart"></i>
+
+        <h3>
+
+            Campaigns
+
+        </h3>
+
+        <h2 id="campaignCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h3>
+
+            Total Donors
+
+        </h3>
+
+        <h2 id="donorCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        <h3>
+
+            Amount Raised
+
+        </h3>
+
+        <h2 id="raisedAmount">
+
+            ₹0
+
+        </h2>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+        Recent Campaigns
+=========================================== -->
+
+<section class="recent-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            ❤️ Recent Campaigns
+
+        </h2>
+
+    </div>
+
+    <div
+            id="recentCampaigns"
+            class="campaign-list">
+
+    </div>
+
+</section>
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

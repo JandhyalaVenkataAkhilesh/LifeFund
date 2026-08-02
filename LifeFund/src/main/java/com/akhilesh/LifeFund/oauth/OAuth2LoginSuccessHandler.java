@@ -68,15 +68,9 @@ public class OAuth2LoginSuccessHandler
 
         String token = jwtService.generateToken(user);
 
-        response.setContentType("text/plain");
-
-        response.getWriter().println(token);
-
-//        response.sendRedirect(
-//                "http://localhost:5500/oauth-success.html?token=" + token
-//        );
-
-        //response.getWriter().println(token);
+        response.sendRedirect(
+                "http://localhost:8080/pages/dashboard.html?token=" + token
+        );
 
     }
 

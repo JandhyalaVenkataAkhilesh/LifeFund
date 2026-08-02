@@ -15,6 +15,8 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long> {
             Pageable pageable
     );
 
+    long countByCampaignStatus(CampaignStatus campaignStatus);
+
     @Query("""
             SELECT c
             FROM Campaign c

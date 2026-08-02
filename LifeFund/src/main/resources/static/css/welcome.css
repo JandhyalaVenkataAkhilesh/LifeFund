@@ -1,0 +1,173 @@
+body{
+
+    margin:0;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:linear-gradient(
+            135deg,
+            #E63946,
+            #C1121F
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+}
+
+.welcome-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    box-sizing:border-box;
+
+}
+
+.welcome-card{
+
+    width:420px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+}
+
+.logo{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+h1{
+
+    font-size:34px;
+
+    color:#E63946;
+
+    margin:10px 0;
+
+}
+
+.tagline{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin:20px 0 15px;
+
+    color:#222;
+
+    line-height:1.5;
+
+}
+
+.description{
+
+    color:#666;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    margin-bottom:30px;
+
+}
+
+.button-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.button-group button{
+
+    height:50px;
+
+    font-size:17px;
+
+    border-radius:10px;
+
+}
+
+.register-btn{
+
+    background:white;
+
+    border:2px solid #E63946;
+
+    color:#E63946;
+
+}
+
+.register-btn:hover{
+
+    background:#E63946;
+
+    color:white;
+
+}
+
+.google-btn{
+
+    background:#4285F4;
+
+    color:white;
+
+}
+
+.google-btn:hover{
+
+    background:#2d6cdf;
+
+}
+
+@media(max-width:600px){
+
+    .welcome-card{
+
+        width:100%;
+
+        padding:30px;
+
+    }
+
+    .logo{
+
+        font-size:50px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+}

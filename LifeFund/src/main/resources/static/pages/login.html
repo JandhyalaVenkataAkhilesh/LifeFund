@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | LifeFund</title>
+
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/login.css">
+
+    <link rel="stylesheet"
+          href="../css/toast.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- Left Panel -->
+
+    <div class="left-panel">
+
+        <div class="brand">
+
+            <h1>❤️ LifeFund</h1>
+
+            <h2>Welcome Back!</h2>
+
+            <p>
+
+                Login to continue supporting patients,
+                donating to verified campaigns,
+                and creating fundraisers.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Right Panel -->
+
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <h2>Login</h2>
+
+            <p class="subtitle">
+
+                Sign in to your account
+
+            </p>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label>Email Address</label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="password-box">
+
+                        <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required>
+
+                        <i class="fa-solid fa-eye"
+                           id="togglePassword">
+
+                        </i>
+
+                    </div>
+
+                </div>
+
+                <button
+                        type="submit"
+                        class="btn btn-primary login-btn"
+                        id="loginButton">
+
+                    <span id="loginText">
+
+                        Login
+
+                    </span>
+
+                    <i class="fa-solid fa-spinner fa-spin"
+                       id="loginSpinner"
+                       style="display:none;">
+
+                    </i>
+
+                </button>
+
+            </form>
+
+            <div class="divider">
+
+                <span>OR</span>
+
+            </div>
+
+            <button
+                    class="google-btn"
+                    id="googleLogin">
+
+                <i class="fa-brands fa-google"></i>
+
+                Continue with Google
+
+            </button>
+
+            <div class="bottom-links">
+
+                <p>
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+
+                        Register
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/login.js"></script>
+
+</body>
+
+</html>

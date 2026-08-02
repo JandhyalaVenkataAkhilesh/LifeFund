@@ -14,10 +14,10 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 
 @Configuration
 @RequiredArgsConstructor
@@ -57,10 +57,13 @@ public class SecurityConfig {
             throws Exception {
 
         http
+
                 .csrf(csrf -> csrf.disable())
 
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS
+                        )
                 )
 
                 .authenticationProvider(authenticationProvider())
@@ -68,25 +71,48 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(
+
+                                "/pages/**",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/assets/**",
+
+                                "/favicon.ico",
+                                "/error",
+
                                 "/auth/signup",
                                 "/auth/login",
+
+                                "/oauth2/**",
+
                                 "/files/**"
+
                         ).permitAll()
 
-                        .requestMatchers(HttpMethod.GET, "/campaigns/**").permitAll()
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/campaigns/**"
+                        ).permitAll()
 
                         .anyRequest().authenticated()
+
                 )
 
                 .httpBasic(Customizer.withDefaults())
+
                 .oauth2Login(oauth -> oauth
 
                         .successHandler(oAuth2LoginSuccessHandler)
+
                 )
 
                 .addFilterBefore(
+
                         jwtAuthFilter,
+
                         UsernamePasswordAuthenticationFilter.class
+
                 );
 
         return http.build();
