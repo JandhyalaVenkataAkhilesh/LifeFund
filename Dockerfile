@@ -5,13 +5,17 @@ FROM maven:3.9-eclipse-temurin-21-alpine AS builder
 
 WORKDIR /app
 
-# Copy Maven configuration
-COPY pom.xml .
+# Copy Maven files
+COPY LifeFund/pom.xml .
+
+COPY LifeFund/.mvn .mvn
+COPY LifeFund/mvnw .
+COPY LifeFund/mvnw.cmd .
 
 # Copy source code
-COPY src ./src
+COPY LifeFund/src ./src
 
-# Build the application
+# Build application
 RUN mvn clean package -DskipTests
 
 # ===============================
@@ -24,10 +28,10 @@ WORKDIR /app
 # Create non-root user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-# Copy generated jar
+# Copy generated JAR
 COPY --from=builder /app/target/*.jar app.jar
 
-# Give permissions
+# Set permissions
 RUN chown -R appuser:appgroup /app
 
 # Run as non-root user
