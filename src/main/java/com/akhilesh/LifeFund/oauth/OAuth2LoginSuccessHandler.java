@@ -69,7 +69,7 @@ public class OAuth2LoginSuccessHandler
         String token = jwtService.generateToken(user);
 
         response.sendRedirect(
-                "http://localhost:8080/pages/dashboard.html?token=" + token
+                "https://lifefund.onrender.com/pages/dashboard.html?token=" + token
         );
 
     }

@@ -71,23 +71,18 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(
-
+                                "/",
                                 "/pages/**",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**",
                                 "/assets/**",
-
                                 "/favicon.ico",
                                 "/error",
-
                                 "/auth/signup",
                                 "/auth/login",
-
                                 "/oauth2/**",
-
                                 "/files/**"
-
                         ).permitAll()
 
                         .requestMatchers(
