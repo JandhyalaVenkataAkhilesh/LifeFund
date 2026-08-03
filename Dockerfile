@@ -6,14 +6,14 @@ FROM maven:3.9-eclipse-temurin-21-alpine AS builder
 WORKDIR /app
 
 # Copy Maven files
-COPY LifeFund/pom.xml .
+COPY pom.xml .
 
-COPY LifeFund/.mvn .mvn
-COPY LifeFund/mvnw .
-COPY LifeFund/mvnw.cmd .
+COPY .mvn .mvn
+COPY mvnw .
+COPY mvnw.cmd .
 
 # Copy source code
-COPY LifeFund/src ./src
+COPY src ./src
 
 # Build application
 RUN mvn clean package -DskipTests
